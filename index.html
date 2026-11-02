@@ -1,355 +1,70 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0a0a0a">
-<meta name="description" content="HelpAvto — автосервис в Оренбурге. Ремонт ходовой, техническое обслуживание, сход-развал и компьютерная диагностика.">
 <title>HelpAvto — Автосервис в Оренбурге</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+<meta name="description" content="HelpAvto — ремонт ходовой, ТО, сход-развал и компьютерная диагностика в Оренбурге.">
 <style>
-:root {
-  --bg:#090909;
-  --panel:#151515;
-  --red:#ed2525;
-  --white:#fff;
-  --muted:#999;
-}
-* {box-sizing:border-box;margin:0;padding:0}
-html {scroll-behavior:smooth}
-body {
-  background:var(--bg);
-  color:var(--white);
-  font-family:Manrope,Arial,sans-serif;
-  line-height:1.6;
-}
-a {color:inherit;text-decoration:none}
-.container {width:min(1160px,90%);margin:auto}
-
-/* HEADER */
-header {
-  position:absolute;top:0;left:0;width:100%;
-  z-index:10;padding:22px 0;
-  border-bottom:1px solid #ffffff18;
-}
-.nav {
-  display:flex;justify-content:space-between;
-  align-items:center;gap:20px;
-}
-.logo {
-  font-size:28px;font-weight:800;letter-spacing:-1.5px;
-}
-.logo span {color:var(--red)}
-.nav-links {display:flex;gap:30px;color:#ccc;font-size:13px}
-.nav-links a:hover {color:var(--red)}
-.nav-phone {font-weight:800;font-size:16px}
-.nav-phone span {color:var(--red)}
-
-/* HERO */
-.hero {
-  min-height:740px;
-  display:flex;align-items:center;
-  position:relative;overflow:hidden;
-  background:
-  linear-gradient(90deg,#090909 5%,#090909e8 42%,#09090945 100%),
-  linear-gradient(0deg,#090909 0%,transparent 35%),
-  url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=85') center/cover;
-}
-.hero-content {padding-top:110px;max-width:680px}
-.eyebrow {
-  color:var(--red);font-size:12px;
-  font-weight:800;letter-spacing:4px;
-  text-transform:uppercase;margin-bottom:22px;
-}
-.hero h1 {
-  font-size:clamp(48px,7vw,88px);
-  font-weight:800;line-height:1.02;
-  letter-spacing:-4px;text-transform:uppercase;
-}
-.hero h1 span {color:var(--red)}
-.hero p {color:#ccc;font-size:17px;margin:28px 0 35px;max-width:480px}
-.actions {display:flex;gap:14px;flex-wrap:wrap}
-.btn {
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:16px 27px;border-radius:3px;
-  font-size:12px;font-weight:800;letter-spacing:1px;
-  text-transform:uppercase;transition:.25s;
-}
-.btn-red {background:var(--red);color:#fff}
-.btn-red:hover {background:#bd1717;transform:translateY(-3px)}
-.btn-outline {border:1px solid #ffffff55}
-.btn-outline:hover {border-color:var(--red);color:var(--red)}
-.hero-bottom {
-  position:absolute;bottom:35px;left:0;width:100%;
-  color:#aaa;font-size:11px;letter-spacing:2px;
-  text-transform:uppercase;
-}
-.hero-bottom .container {display:flex;justify-content:space-between}
-
-/* SECTION */
-section {padding:100px 0}
-.section-label {
-  color:var(--red);font-size:11px;
-  font-weight:800;letter-spacing:3px;
-  margin-bottom:12px;text-transform:uppercase;
-}
-.section-title {
-  font-size:clamp(32px,5vw,48px);
-  line-height:1.15;font-weight:800;
-  letter-spacing:-2px;text-transform:uppercase;
-}
-.section-title span {color:var(--red)}
-.section-desc {color:var(--muted);max-width:570px;margin-top:18px}
-
-/* SERVICES */
-.services-grid {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:17px;margin-top:48px;
-}
-.service {
-  background:linear-gradient(145deg,#1b1b1b,#101010);
-  border:1px solid #ffffff12;
-  padding:30px 24px;min-height:225px;
-  transition:.3s;position:relative;
-}
-.service:hover {
-  transform:translateY(-7px);
-  border-color:var(--red);
-}
-.service-number {color:var(--red);font-size:13px;font-weight:800}
-.service h3 {font-size:19px;margin:27px 0 12px;line-height:1.3}
-.service p {color:#999;font-size:13px}
-.service:after {
-  content:"↗";position:absolute;right:22px;bottom:18px;
-  color:var(--red);font-size:22px;
-}
-
-/* ABOUT */
-.about {background:#111;border-top:1px solid #ffffff10;border-bottom:1px solid #ffffff10}
-.about-grid {display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
-.about-image {
-  min-height:410px;
-  background:url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1100&q=85') center/cover;
-  position:relative;
-}
-.about-image:after {
-  content:"";position:absolute;inset:15px;
-  border:1px solid #ed252588;
-}
-.features {margin-top:30px;display:grid;gap:18px}
-.feature {display:flex;gap:15px;align-items:flex-start}
-.feature-mark {color:var(--red);font-size:21px;font-weight:800}
-.feature strong {display:block;font-size:15px}
-.feature small {color:#999;font-size:12px}
-
-/* CTA */
-.cta {
-  background:linear-gradient(110deg,#9f1010,#e12626);
-  padding:60px 0;
-}
-.cta-inner {
-  display:flex;justify-content:space-between;
-  align-items:center;gap:25px;flex-wrap:wrap;
-}
-.cta h2 {font-size:clamp(27px,4vw,40px);line-height:1.2}
-.cta p {color:#ffe0e0;margin-top:10px;font-size:14px}
-.cta .btn {background:#fff;color:#111}
-.cta .btn:hover {background:#111;color:#fff}
-
-/* CONTACTS */
-.contacts-grid {display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:40px}
-.contact-item {padding:22px 0;border-bottom:1px solid #ffffff20}
-.contact-item small {
-  color:#999;font-size:11px;
-  text-transform:uppercase;letter-spacing:2px
-}
-.contact-item strong {display:block;font-size:22px;margin-top:7px}
-.contact-item strong.red {color:var(--red)}
-.contact-note {color:#888;font-size:12px;margin-top:20px}
-
-/* FOOTER */
-footer {background:#050505;padding:30px 0;border-top:1px solid #ffffff15}
-.footer-inner {
-  display:flex;justify-content:space-between;
-  align-items:center;gap:20px;flex-wrap:wrap;
-}
-footer p {color:#777;font-size:11px}
-
-/* MOBILE */
-@media(max-width:900px) {
-  .services-grid {grid-template-columns:repeat(2,1fr)}
-  .about-grid {gap:35px}
-  .nav-links {gap:15px}
-}
-@media(max-width:600px) {
-  header {padding:17px 0}
-  .logo {font-size:23px}
-  .nav-links {display:none}
-  .nav-phone {font-size:14px}
-  .hero {min-height:680px;background-position:60% center}
-  .hero-content {padding-top:100px}
-  .hero h1 {letter-spacing:-2.5px}
-  .hero p {font-size:15px}
-  .hero-bottom {font-size:9px}
-  section {padding:70px 0}
-  .services-grid {grid-template-columns:1fr 1fr;gap:10px}
-  .service {padding:20px 15px;min-height:210px}
-  .service h3 {font-size:16px}
-  .service p {font-size:11px}
-  .about-grid {grid-template-columns:1fr}
-  .about-image {min-height:260px;order:2}
-  .contacts-grid {grid-template-columns:1fr;gap:15px}
-  .cta {padding:45px 0}
-  .cta-inner {align-items:flex-start}
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#101010;color:#fff;font-family:Arial,sans-serif;line-height:1.6}
+header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333}
+.logo{font-size:28px;font-weight:900;color:#fff}
+.logo span{color:#ed2525}
+header a,.btn{color:white;text-decoration:none}
+.hero{min-height:570px;padding:100px 8%;display:flex;align-items:center;background:linear-gradient(90deg,#090909 15%,rgba(0,0,0,.72)),url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1600') center/cover}
+.hero h1{font-size:clamp(42px,7vw,76px);line-height:1.1;max-width:700px}
+.hero h1 span{color:#ed2525}
+.hero p{font-size:19px;color:#ccc;margin:25px 0}
+.btn{display:inline-block;background:#ed2525;padding:15px 30px;border-radius:5px;font-weight:bold}
+section{padding:75px 8%}
+h2{font-size:36px;margin-bottom:35px}
+h2 span{color:#ed2525}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.service{background:#1c1c1c;padding:30px;border-bottom:3px solid #ed2525;border-radius:6px}
+.service h3{margin-bottom:12px;font-size:21px}
+.service p{color:#aaa}
+.about{background:#191919}
+.about p{color:#ccc;max-width:750px;font-size:18px}
+.contact{text-align:center}
+.contact p{color:#ccc;margin:10px}
+.phone{font-size:36px;color:#ed2525;font-weight:bold;margin:20px}
+footer{text-align:center;padding:25px;background:#080808;color:#777}
+@media(max-width:600px){header{padding:18px 5%}.hero{padding:75px 6%;min-height:500px}section{padding:55px 6%}h2{font-size:29px}}
 </style>
 </head>
-
 <body>
-
 <header>
-  <div class="container nav">
-    <a class="logo" href="#">HELP<span>AVTO</span></a>
-    <nav class="nav-links">
-      <a href="#services">Услуги</a>
-      <a href="#about">О сервисе</a>
-      <a href="#contacts">Контакты</a>
-    </nav>
-    <a class="nav-phone" href="tel:609906"><span>☎</span> 609-906</a>
-  </div>
+<div class="logo">HELP<span>AVTO</span></div>
+<a href="tel:609906">☎ 609-906</a>
 </header>
-
-<main>
-
 <div class="hero">
-  <div class="container hero-content">
-    <div class="eyebrow">Автосервис · Оренбург</div>
-    <h1>ТВОЙ АВТОМОБИЛЬ.<br><span>НАША РАБОТА.</span></h1>
-    <p>Ремонт и обслуживание автомобилей. От диагностики до уверенного движения.</p>
-    <div class="actions">
-      <a class="btn btn-red" href="tel:609906">Записаться на ремонт ↗</a>
-      <a class="btn btn-outline" href="#services">Наши услуги</a>
-    </div>
-  </div>
-  <div class="hero-bottom">
-    <div class="container">
-      <span>HELPAVTO / SERVICE</span>
-      <span>ОРЕНБУРГ · 2026</span>
-    </div>
-  </div>
+<div>
+<h1>ТВОЙ АВТОСЕРВИС <span>В ОРЕНБУРГЕ</span></h1>
+<p>Профессиональное обслуживание и ремонт автомобилей.</p>
+<a class="btn" href="tel:609906">ЗАПИСАТЬСЯ НА РЕМОНТ</a>
 </div>
-
-<section id="services">
-  <div class="container">
-    <div class="section-label">Что мы делаем</div>
-    <h2 class="section-title">УСЛУГИ <span>АВТОСЕРВИСА</span></h2>
-    <p class="section-desc">Основные направления нашей работы — обслуживание, диагностика и ремонт вашего автомобиля.</p>
-
-    <div class="services-grid">
-      <article class="service">
-        <div class="service-number">01 / REPAIR</div>
-        <h3>Ремонт ходовой</h3>
-        <p>Диагностика подвески, замена изношенных деталей и ремонт ходовой части.</p>
-      </article>
-      <article class="service">
-        <div class="service-number">02 / SERVICE</div>
-        <h3>Техническое обслуживание</h3>
-        <p>Замена масла, фильтров и необходимых расходных материалов.</p>
-      </article>
-      <article class="service">
-        <div class="service-number">03 / ALIGNMENT</div>
-        <h3>Сход-развал</h3>
-        <p>Проверка и регулировка углов установки колёс.</p>
-      </article>
-      <article class="service">
-        <div class="service-number">04 / DIAGNOSTIC</div>
-        <h3>Компьютерная диагностика</h3>
-        <p>Считывание ошибок и проверка электронных систем автомобиля.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="about" id="about">
-  <div class="container about-grid">
-    <div>
-      <div class="section-label">HELPAVTO</div>
-      <h2 class="section-title">АВТОСЕРВИС <span>БЕЗ ЛИШНИХ СЛОВ</span></h2>
-      <p class="section-desc">Мы стремимся сделать обслуживание автомобиля понятным и удобным. Объясняем, что требует ремонта, и помогаем выбрать необходимые работы.</p>
-
-      <div class="features">
-        <div class="feature">
-          <div class="feature-mark">✓</div>
-          <div><strong>Понятный подход</strong><small>Объясняем неисправности и предлагаем варианты ремонта.</small></div>
-        </div>
-        <div class="feature">
-          <div class="feature-mark">✓</div>
-          <div><strong>Работа по делу</strong><small>Сосредоточены на реальных проблемах автомобиля.</small></div>
-        </div>
-        <div class="feature">
-          <div class="feature-mark">✓</div>
-          <div><strong>Запись по телефону</strong><small>Уточняйте удобное время и стоимость работ.</small></div>
-        </div>
-      </div>
-    </div>
-    <div class="about-image" role="img" aria-label="Автомобильный сервис"></div>
-  </div>
-</section>
-
-<div class="cta">
-  <div class="container cta-inner">
-    <div>
-      <h2>АВТОМОБИЛЮ НУЖЕН СЕРВИС?</h2>
-      <p>Позвоните нам и обсудим вашу задачу.</p>
-    </div>
-    <a class="btn" href="tel:609906">ПОЗВОНИТЬ · 609-906</a>
-  </div>
 </div>
-
-<section id="contacts">
-  <div class="container">
-    <div class="section-label">Мы на связи</div>
-    <h2 class="section-title">КОНТАКТЫ <span>HELPAVTO</span></h2>
-    <div class="contacts-grid">
-      <div>
-        <div class="contact-item">
-          <small>Телефон для записи</small>
-          <a href="tel:609906"><strong class="red">609-906</strong></a>
-        </div>
-        <div class="contact-item">
-          <small>Город</small>
-          <strong>Оренбург</strong>
-        </div>
-        <p class="contact-note">Позвоните, чтобы уточнить стоимость и записаться на обслуживание.</p>
-      </div>
-      <div>
-        <div class="contact-item">
-          <small>Автосервис</small>
-          <strong>HELPAVTO</strong>
-        </div>
-        <div class="contact-item">
-          <small>Направления работы</small>
-          <strong>Ремонт · ТО · Диагностика</strong>
-        </div>
-      </div>
-    </div>
-  </div>
+<section>
+<h2>НАШИ <span>УСЛУГИ</span></h2>
+<div class="services">
+<div class="service"><h3>Ремонт ходовой</h3><p>Диагностика и ремонт подвески, замена деталей.</p></div>
+<div class="service"><h3>Техническое обслуживание</h3><p>Замена масла, фильтров и расходных материалов.</p></div>
+<div class="service"><h3>Сход-развал</h3><p>Регулировка углов установки колёс.</p></div>
+<div class="service"><h3>Компьютерная диагностика</h3><p>Поиск ошибок и диагностика электронных систем.</p></div>
+</div>
 </section>
-
-</main>
-
-<footer>
-  <div class="container footer-inner">
-    <a class="logo" href="#">HELP<span>AVTO</span></a>
-    <p>© 2026 HELPAVTO. АВТОСЕРВИС В ОРЕНБУРГЕ.</p>
-  </div>
-</footer>
-
+<section class="about">
+<h2>ПОЧЕМУ <span>HELPAVTO?</span></h2>
+<p>Мы заботимся о вашем автомобиле и предлагаем качественный ремонт, техническое обслуживание и диагностику. Наша задача — вернуть автомобиль на дорогу в исправном состоянии.</p>
+</section>
+<section class="contact">
+<h2>ЗАПИШИТЕСЬ <span>К НАМ</span></h2>
+<p>Автосервис HelpAvto</p>
+<p>Оренбург</p>
+<div class="phone">609-906</div>
+<a class="btn" href="tel:609906">ПОЗВОНИТЬ</a>
+</section>
+<footer>© 2026 HelpAvto | Автосервис в Оренбурге</footer>
 </body>
 </html>
